@@ -1,0 +1,44 @@
+:root {
+    --light: #8105D8;
+    --dark: #3B064D;
+    --white: #FFFFFF;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(var(--light), var(--dark));
+    font-family: sans-serif;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.location, .temperature {
+    height: 30vh;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.temperature {
+    flex-direction: column;
+}
+
+.degree-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.degree-section span {
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+.degree-description {
+    font-size: 3rem;
+}
