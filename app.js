@@ -2,6 +2,7 @@ const timezoneContainer = document.getElementsByClassName("location-timezone")[0
 const fullTempContainer = document.getElementsByClassName("degree-section")[0];
 const tempContainer = document.getElementsByClassName("temperature-degree")[0];
 const symContainer = fullTempContainer.getElementsByTagName("span")[0];
+const iconCanvas = document.getElementsByClassName("icon")[0];
 
 let temp = -404;
 let isFahrenheit = true;
@@ -25,6 +26,8 @@ window.addEventListener("load", () => {
         timezoneContainer.innerHTML = json.timezone;
         temp = json.currently.apparentTemperature;
         tempContainer.innerHTML = temp;
+
+        setIcon(json.currently.icon);
     });
 });
 
@@ -40,3 +43,9 @@ fullTempContainer.addEventListener("click", () => {
         symContainer.innerHTML = "C°";
     }
 });
+
+function setIcon(icon, canvas) {
+    let skyIcon = new Skycons({color: "violet"});
+    skyIcon.add(iconCanvas, icon.replace("-", "_").toUpperCase());
+    skyIcon.play();
+}
